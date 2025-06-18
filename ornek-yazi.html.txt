@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Yazı Başlığı] - Retro Byte Blog</title> <!-- Burayı yazınızın başlığıyla güncelleyeceksiniz -->
+    <!-- Google Fonts - Aldrich (Başlıklar için) -->
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&amp;display=swap" rel="stylesheet"/>
+    <!-- Google Fonts - Roboto Mono (Gövde Metinleri ve Kod Blokları için) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Özel Tailwind CSS konfigürasyonu veya genel stil tanımları */
+        /* Font aileleri için özel sınıflar tanımlıyoruz */
+        .font-aldrich {
+            font-family: 'Aldrich', sans-serif;
+        }
+        .font-roboto-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Temel arka plan rengi */
+        body {
+            background-color: #1A1A1A; /* Koyu Kömür Grisi */
+            color: #E0E0E0; /* Açık Gri metin rengi */
+            font-family: 'Roboto Mono', monospace; /* Genel metin fontu */
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Vurgu rengi için genel stil - linkler ve butonlar için */
+        a {
+            color: #007BFF; /* Elektrik Mavisi */
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+        a:hover {
+            color: #4CAF50; /* Hoverda hafif yeşil tonu */
+        }
+
+        /* Kategori alt menüsünün görünürlüğü ve etkileşimi için */
+        .group:hover .group-hover-visible {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .group-hover-visible {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+        }
+        /* Yazı içi içerik için varsayılan HTML elementlerine stil (isteğe bağlı) */
+        .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+            color: #007BFF; /* Başlıklar için elektrik mavisi */
+            font-family: 'Aldrich', sans-serif;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        .prose p {
+            margin-bottom: 1em;
+        }
+        .prose ul, .prose ol {
+            margin-bottom: 1em;
+            padding-left: 1.5em;
+        }
+        .prose li {
+            margin-bottom: 0.5em;
+        }
+        .prose img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            margin-top: 2rem; /* my-8 */
+            margin-bottom: 2rem; /* my-8 */
+            border: 1px solid rgba(0, 123, 255, 0.5); /* border border-[#007BFF]/50 */
+        }
+        .prose a {
+            color: #007BFF; /* Link rengi */
+            text-decoration: underline;
+        }
+        .prose a:hover {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body class="font-roboto-mono">
+    <!-- Genel konteyner - içeriği ortalamak ve genişliği sınırlamak için -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header Bölümü -->
+        <header class="bg-[#2C2C2C] text-[#E0E0E0] p-6 rounded-b-lg shadow-lg flex justify-between items-center relative z-10">
+            <!-- Blog Logosu/Adı - Anasayfaya Yönlendir -->
+            <div class="flex items-center space-x-2">
+                <!-- Retro tarzı SVG oyun kontrolcüsü ikonu -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#007BFF]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm-5 7h10v2H7V7zm0 4h10v2H7v-2zM6 14v4h12v-4H6zm3.5-9h5v2h-5V5zm-4 4h2v2h-2V9zm11 0h2v2h-2V9z"/>
+                </svg>
+                <a href="../index.html" class="text-3xl font-aldrich text-[#007BFF] hover:text-[#4CAF50] transition-colors duration-200">
+                    Retro Byte
+                </a>
+            </div>
+
+            <!-- Masaüstü Navigasyon Menüsü -->
+            <nav class="hidden md:flex space-x-6 items-center">
+                <!-- Emülatörler Alt Menüsü -->
+                <div class="relative group">
+                    <a href="../sayfalar/emülatorler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich inline-flex items-center">
+                        Emülatörler
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="absolute hidden group-hover-visible bg-[#2C2C2C] text-[#E0E0E0] rounded-md shadow-lg py-2 w-48 mt-0 top-full left-0 z-20 space-y-1">
+                        <a href="../sayfalar/emülatorler-giris-seviyesi-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Giriş Seviyesi Rehberler</a>
+                        <a href="../sayfalar/emülatorler-detayli-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Detaylı Rehberler</a>
+                    </div>
+                </div>
+                <a href="../sayfalar/donanim-ve-modifikasyonlar.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Donanım & Modifikasyonlar</a>
+                <a href="../sayfalar/incelemeler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İncelemeler</a>
+                <a href="../sayfalar/fanzin.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Fanzin</a>
+                <a href="../sayfalar/etik.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Etik</a>
+                <a href="../sayfalar/faydali-linkler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Faydalı Linkler</a>
+                <a href="../sayfalar/iletisim.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İletişim</a>
+            </nav>
+
+            <!-- Mobil Menü İkonu (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden text-[#E0E0E0] hover:text-[#007BFF] focus:outline-none transition-colors duration-200">
+                <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Mobil Açılır Menü -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-[#2C2C2C] rounded-b-lg shadow-lg absolute w-full left-0 z-0 py-4 transform -translate-y-2 transition-transform duration-300 ease-in-out">
+            <div class="flex flex-col items-center space-y-4">
+                <a href="../index.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Anasayfa</a>
+                <!-- Emülatörler mobil menü için -->
+                <button class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich focus:outline-none" id="mobile-emulator-toggle">
+                    Emülatörler <svg class="ml-1 w-4 h-4 inline-block transform transition-transform duration-200" id="mobile-emulator-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="mobile-emulator-submenu" class="hidden flex flex-col items-center space-y-2 mt-2 w-full">
+                    <a href="../sayfalar/emülatorler-giris-seviyesi-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Giriş Seviyesi Rehberler</a>
+                    <a href="../sayfalar/emülatorler-detayli-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Detaylı Rehberler</a>
+                </div>
+                <a href="../sayfalar/donanim-ve-modifikasyonlar.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Donanım & Modifikasyonlar</a>
+                <a href="../sayfalar/incelemeler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İncelemeler</a>
+                <a href="../sayfalar/fanzin.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Fanzin</a>
+                <a href="../sayfalar/etik.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Etik</a>
+                <a href="../sayfalar/faydali-linkler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Faydalı Linkler</a>
+                <a href="../sayfalar/iletisim.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İletişim</a>
+            </div>
+        </nav>
+
+        <!-- Ana İçerik ve Sidebar Bölümü -->
+        <main class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 my-8">
+            <!-- Ana İçerik Alanı -->
+            <section class="md:col-span-2 lg:col-span-3 bg-[#2C2C2C] p-8 rounded-lg shadow-md">
+                <!-- Yazı Başlığı -->
+                <h1 class="text-4xl sm:text-5xl font-aldrich text-[#007BFF] mb-4 leading-tight">
+                    [Yazı Başlığı Buraya]
+                </h1>
+                <!-- Yazar ve Tarih Bilgisi -->
+                <p class="text-sm text-[#AAAAAA] mb-6">
+                    <span class="font-bold">Yazar:</span> [Yazar Adınız] | <span class="font-bold">Tarih:</span> [GG Ay YYYY] | <span class="font-bold">Kategori:</span> [Kategori Adı]
+                    <!-- Etiketler kısmı kaldırıldı -->
+                </p>
+
+                <!-- YAZI İÇERİĞİ BURAYA GELECEK -->
+                <div class="prose prose-invert max-w-none text-[#E0E0E0] font-roboto-mono">
+                    <p>
+                        Bu alana blog yazınızın tüm içeriğini, paragraflar, başlıklar, listeler ve görseller dahil olmak üzere ekleyeceksiniz.
+                    </p>
+                    <p>
+                        Görsel eklemek için şu yapıyı kullanabilirsiniz:
+                    </p>
+                    
+                    <!-- Örnek Görsel Ekleme -->
+                    <img src="../varliklar/gorseller/ornek-gorsel.jpg" 
+                         alt="Görselin Açıklaması Buraya Gelecek" 
+                         class="w-full h-auto rounded-lg shadow-lg my-8 border border-[#007BFF]/50" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/800x400/2C2C2C/007BFF?text=Görsel+Yer+Tutucu'" />
+                    
+                    <h3>Alt Başlıklar ve İçerik Düzenlemesi</h3>
+                    <p>
+                        Yazınızın okunabilirliğini artırmak için alt başlıklar (`<h3>`, `<h4>` vb.), madde işaretli listeler (`<ul>`), numaralı listeler (`<ol>`) ve diğer HTML elementlerini kullanabilirsiniz. Tüm bunlar, temanın font ve renk kurallarına uygun olarak otomatik olarak şekillenecektir.
+                    </p>
+                    <p>
+                        Her paragrafın arasına yeterli boşluk bırakmaya dikkat edin. Uzun metinlerde okuyucunun gözünü yormamak önemlidir.
+                    </p>
+                </div>
+
+                <!-- Yorumlar Bölümü kaldırıldı -->
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="md:col-span-1 bg-[#2C2C2C] p-6 rounded-lg shadow-md sticky top-8 self-start">
+                <!-- Arama Barı -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-aldrich text-[#007BFF] mb-4 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span>Arama</span>
+                    </h3>
+                    <input type="text" id="search-input" placeholder="Blogda Ara..." 
+                           class="w-full p-3 rounded-md bg-[#1A1A1A] text-[#E0E0E0] border border-[#007BFF] focus:outline-none focus:ring-2 focus:ring-[#4CAF50] font-roboto-mono">
+                </div>
+
+                <!-- Etiketler Widget -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-aldrich text-[#007BFF] mb-4 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                        <span>Etiketler</span>
+                    </h3>
+                    <div id="tag-list" class="flex flex-wrap gap-2">
+                        <!-- Sadece belirtilen etiketler -->
+                        <button class="tag-button px-3 py-1 bg-[#1A1A1A] text-[#E0E0E0] rounded-full text-sm hover:bg-[#007BFF] transition-colors duration-200 active:scale-95" data-tag="psp">PSP</button>
+                        <button class="tag-button px-3 py-1 bg-[#1A1A1A] text-[#E0E0E0] rounded-full text-sm hover:bg-[#007BFF] transition-colors duration-200 active:scale-95" data-tag="playstation 1">PLAYSTATION 1</button>
+                        <button class="tag-button px-3 py-1 bg-[#1A1A1A] text-[#E0E0E0] rounded-full text-sm hover:bg-[#007BFF] transition-colors duration-200 active:scale-95" data-tag="rehber">REHBER</button>
+                        <button class="tag-button px-3 py-1 bg-[#1A1A1A] text-[#E0E0E0] rounded-full text-sm hover:bg-[#007BFF] transition-colors duration-200 active:scale-95" data-tag="emülatör">EMÜLATOR</button>
+                    </div>
+                </div>
+
+                <!-- Dijital Arşivcilik Hakkında Butonu -->
+                <div class="mb-8">
+                    <a href="https://your-digital-entrepreneurship-blog.com" target="_blank" rel="noopener noreferrer" 
+                       class="block w-full p-4 bg-[#007BFF] text-white rounded-lg text-center font-aldrich text-xl hover:bg-[#4CAF50] hover:text-[#1A1A1A] transition-colors duration-200 active:scale-95">
+                        Dijital Arşivcilik Hakkında
+                    </a>
+                </div>
+
+                <!-- Takipte Kal! Metin Linkleri -->
+                <div>
+                    <h3 class="text-2xl font-aldrich text-[#007BFF] mb-4 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                        <span>Takipte Kal!</span>
+                    </h3>
+                    <div class="flex flex-col space-y-2">
+                        <a href="https://www.reddit.com/user/your-reddit-username" target="_blank" rel="noopener noreferrer" class="text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Reddit</a>
+                        <a href="https://www.youtube.com/channel/your-youtube-channel" target="_blank" rel="noopener noreferrer" class="text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">YouTube</a>
+                        <a href="https://bsky.app/profile/your-bluesky-handle" target="_blank" rel="noopener noreferrer" class="text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Bluesky</a>
+                        <a href="https://discord.gg/your-discord-invite" target="_blank" rel="noopener noreferrer" class="text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Discord</a>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Footer Bölümü -->
+        <footer class="bg-[#2C2C2C] text-[#AAAAAA] p-6 rounded-t-lg shadow-inner text-center mt-8">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Retro Byte. Tüm Hakları Saklıdır.</p>
+        </footer>
+
+    </div> <!-- Genel konteyner sonu -->
+
+    <!-- Sayfa Başına Dön Butonu -->
+    <button id="scroll-to-top" class="fixed bottom-6 left-6 bg-[#007BFF] text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-[#4CAF50] focus:outline-none focus:ring-2 focus:ring-[#007BFF] z-20">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- JavaScript - Mobil Menü ve Scroll To Top -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobil Menü Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileEmulatorToggle = document.getElementById('mobile-emulator-toggle');
+            const mobileEmulatorSubmenu = document.getElementById('mobile-emulator-submenu');
+            const mobileEmulatorArrow = document.getElementById('mobile-emulator-arrow');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenu.classList.toggle('translate-y-0');
+                    mobileMenu.classList.toggle('-translate-y-2');
+                });
+            }
+
+            if (mobileEmulatorToggle && mobileEmulatorSubmenu && mobileEmulatorArrow) {
+                mobileEmulatorToggle.addEventListener('click', function() {
+                    mobileEmulatorSubmenu.classList.toggle('hidden');
+                    mobileEmulatorArrow.classList.toggle('rotate-180');
+                });
+            }
+
+            // --- Sayfa Başına Dön Butonu ---
+            const scrollToTopButton = document.getElementById('scroll-to-top');
+            if (scrollToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        scrollToTopButton.classList.remove('opacity-0');
+                        scrollToTopButton.classList.add('opacity-100');
+                    } else {
+                        scrollToTopButton.classList.remove('opacity-100');
+                        scrollToTopButton.classList.add('opacity-0');
+                    }
+                });
+                scrollToTopButton.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            // Bu sayfada (tekil yazı sayfası) sayfalama, arama ve etiket filtreleme JS'i gerekli değildir, 
+            // çünkü tek bir yazı gösterilmektedir. Bu yüzden ilgili kodlar kaldırılmıştır.
+        });
+    </script>
+</body>
+</html>

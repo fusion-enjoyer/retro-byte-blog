@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fanzin - Retro Byte Blog</title>
+    <!-- Google Fonts - Aldrich (Başlıklar için) -->
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&amp;display=swap" rel="stylesheet"/>
+    <!-- Google Fonts - Roboto Mono (Gövde Metinleri ve Kod Blokları için) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Özel Tailwind CSS konfigürasyonu veya genel stil tanımları */
+        /* Font aileleri için özel sınıflar tanımlıyoruz */
+        .font-aldrich {
+            font-family: 'Aldrich', sans-serif;
+        }
+        .font-roboto-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Temel arka plan rengi */
+        body {
+            background-color: #1A1A1A; /* Koyu Kömür Grisi */
+            color: #E0E0E0; /* Açık Gri metin rengi */
+            font-family: 'Roboto Mono', monospace; /* Genel metin fontu */
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Vurgu rengi için genel stil - linkler ve butonlar için */
+        a {
+            color: #007BFF; /* Elektrik Mavisi */
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+        a:hover {
+            color: #4CAF50; /* Hoverda hafif yeşil tonu */
+        }
+
+        /* Kategori alt menüsünün görünürlüğü ve etkileşimi için */
+        .group:hover .group-hover-visible {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .group-hover-visible {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="font-roboto-mono">
+    <!-- Genel konteyner - içeriği ortalamak ve genişliği sınırlamak için -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header Bölümü -->
+        <header class="bg-[#2C2C2C] text-[#E0E0E0] p-6 rounded-b-lg shadow-lg flex justify-between items-center relative z-10">
+            <!-- Blog Logosu/Adı - Anasayfaya Yönlendir -->
+            <div class="flex items-center space-x-2">
+                <!-- Retro tarzı SVG oyun kontrolcüsü ikonu -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#007BFF]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm-5 7h10v2H7V7zm0 4h10v2H7v-2zM6 14v4h12v-4H6zm3.5-9h5v2h-5V5zm-4 4h2v2h-2V9zm11 0h2v2h-2V9z"/>
+                </svg>
+                <a href="../index.html" class="text-3xl font-aldrich text-[#007BFF] hover:text-[#4CAF50] transition-colors duration-200">
+                    Retro Byte
+                </a>
+            </div>
+
+            <!-- Masaüstü Navigasyon Menüsü -->
+            <nav class="hidden md:flex space-x-6 items-center">
+                <!-- Emülatörler Alt Menüsü -->
+                <div class="relative group">
+                    <a href="emülatorler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich inline-flex items-center">
+                        Emülatörler
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="absolute hidden group-hover-visible bg-[#2C2C2C] text-[#E0E0E0] rounded-md shadow-lg py-2 w-48 mt-0 top-full left-0 z-20 space-y-1">
+                        <a href="emülatorler-giris-seviyesi-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Giriş Seviyesi Rehberler</a>
+                        <a href="emülatorler-detayli-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Detaylı Rehberler</a>
+                    </div>
+                </div>
+                <a href="donanim-ve-modifikasyonlar.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Donanım & Modifikasyonlar</a>
+                <a href="incelemeler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İncelemeler</a>
+                <a href="fanzin.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Fanzin</a>
+                <a href="etik.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Etik</a>
+                <a href="faydali-linkler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Faydalı Linkler</a>
+                <a href="iletisim.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İletişim</a>
+            </nav>
+
+            <!-- Mobil Menü İkonu (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden text-[#E0E0E0] hover:text-[#007BFF] focus:outline-none transition-colors duration-200">
+                <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Mobil Açılır Menü -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-[#2C2C2C] rounded-b-lg shadow-lg absolute w-full left-0 z-0 py-4 transform -translate-y-2 transition-transform duration-300 ease-in-out">
+            <div class="flex flex-col items-center space-y-4">
+                <a href="../index.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Anasayfa</a>
+                <!-- Emülatörler mobil menü için -->
+                <button class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich focus:outline-none" id="mobile-emulator-toggle">
+                    Emülatörler <svg class="ml-1 w-4 h-4 inline-block transform transition-transform duration-200" id="mobile-emulator-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="mobile-emulator-submenu" class="hidden flex flex-col items-center space-y-2 mt-2 w-full">
+                    <a href="emülatorler-giris-seviyesi-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Giriş Seviyesi Rehberler</a>
+                    <a href="emülatorler-detayli-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Detaylı Rehberler</a>
+                </div>
+                <a href="donanim-ve-modifikasyonlar.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Donanım & Modifikasyonlar</a>
+                <a href="incelemeler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İncelemeler</a>
+                <a href="fanzin.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Fanzin</a>
+                <a href="etik.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Etik</a>
+                <a href="faydali-linkler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Faydalı Linkler</a>
+                <a href="iletisim.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İletişim</a>
+            </div>
+        </nav>
+
+        <!-- Ana İçerik Bölümü (Fanzin Sayfası İçeriği) -->
+        <main class="flex justify-center items-start my-8">
+            <section class="w-full md:w-3/4 lg:w-2/3 bg-[#2C2C2C] p-8 rounded-lg shadow-md text-center">
+                <h1 class="text-4xl sm:text-5xl font-aldrich text-[#007BFF] mb-6">Fanzin</h1>
+                
+                <div class="text-[#E0E0E0] leading-relaxed font-roboto-mono max-w-2xl mx-auto">
+                    <p class="mb-4">
+                        Retro Byte olarak, dijital arşivcilik ve retro oyun kültürünü yaşatmak adına aylık fanzinler çıkarmayı planlıyoruz. Bu fanzinlerde blogdaki yazılarımızdan seçkiler, özel röportajlar, çizimler ve daha pek çok sürpriz yer alacak.
+                    </p>
+                    <p class="mb-4">
+                        Şu anda herhangi bir fanzinimiz yayımlanmamıştır. Ancak ilk sayımız hazır olduğunda, bu sayfada hem dijital versiyonlarını görüntüleyebileceğiniz linkleri bulacak hem de fiziksel kopyalarına nereden ulaşabileceğinize dair detaylı bir harita ve satış noktaları listesi yayımlayacağız.
+                    </p>
+                    <p class="mb-4">
+                        Bizi takipte kalarak fanzin duyurularımızı kaçırmayın!
+                    </p>
+                    <img src="../varliklar/gorseller/fanzin-placeholder.jpg" 
+                         alt="Fanzin kapak görseli yer tutucu" 
+                         class="w-full h-auto max-w-sm mx-auto rounded-lg shadow-lg my-8 border border-[#007BFF]/50" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/400x550/2C2C2C/007BFF?text=Fanzin+Yakında'" />
+                    <p class="text-sm text-[#AAAAAA] mt-6">
+                        Yakında burada dijital fanzinlerimize ve fiziksel dağıtım noktalarımıza ulaşabileceksiniz.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Bölümü -->
+        <footer class="bg-[#2C2C2C] text-[#AAAAAA] p-6 rounded-t-lg shadow-inner text-center mt-8">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Retro Byte. Tüm Hakları Saklıdır.</p>
+        </footer>
+
+    </div> <!-- Genel konteyner sonu -->
+
+    <!-- Sayfa Başına Dön Butonu -->
+    <button id="scroll-to-top" class="fixed bottom-6 left-6 bg-[#007BFF] text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-[#4CAF50] focus:outline-none focus:ring-2 focus:ring-[#007BFF] z-20">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- JavaScript - Hamburger Menü ve Scroll To Top -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobil Menü Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileEmulatorToggle = document.getElementById('mobile-emulator-toggle');
+            const mobileEmulatorSubmenu = document.getElementById('mobile-emulator-submenu');
+            const mobileEmulatorArrow = document.getElementById('mobile-emulator-arrow');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenu.classList.toggle('translate-y-0');
+                    mobileMenu.classList.toggle('-translate-y-2');
+                });
+            }
+
+            if (mobileEmulatorToggle && mobileEmulatorSubmenu && mobileEmulatorArrow) {
+                mobileEmulatorToggle.addEventListener('click', function() {
+                    mobileEmulatorSubmenu.classList.toggle('hidden');
+                    mobileEmulatorArrow.classList.toggle('rotate-180');
+                });
+            }
+
+            // --- Sayfa Başına Dön Butonu ---
+            const scrollToTopButton = document.getElementById('scroll-to-top');
+            if (scrollToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        scrollToTopButton.classList.remove('opacity-0');
+                        scrollToTopButton.classList.add('opacity-100');
+                    } else {
+                        scrollToTopButton.classList.remove('opacity-100');
+                        scrollToTopButton.classList.add('opacity-0');
+                    }
+                });
+                scrollToTopButton.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

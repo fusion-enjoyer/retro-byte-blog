@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Byte Blog</title>
+    <!-- Google Fonts - Aldrich (Başlıklar için) -->
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&amp;display=swap" rel="stylesheet"/>
+    <!-- Google Fonts - Roboto Mono (Gövde Metinleri ve Kod Blokları için) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Özel Tailwind CSS konfigürasyonu veya genel stil tanımları */
+        /* Font aileleri için özel sınıflar tanımlıyoruz */
+        .font-aldrich {
+            font-family: 'Aldrich', sans-serif;
+        }
+        .font-roboto-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Temel arka plan rengi */
+        body {
+            background-color: #1A1A1A; /* Koyu Kömür Grisi */
+            color: #E0E0E0; /* Açık Gri metin rengi */
+            font-family: 'Roboto Mono', monospace; /* Genel metin fontu */
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Vurgu rengi için genel stil - linkler ve butonlar için */
+        a {
+            color: #007BFF; /* Elektrik Mavisi */
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+        a:hover {
+            color: #4CAF50; /* Hoverda hafif yeşil tonu */
+        }
+
+        /* Kategori alt menüsünün görünürlüğü ve etkileşimi için */
+        .group:hover .group-hover-visible {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .group-hover-visible {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="font-roboto-mono">
+    <!-- Genel konteyner - içeriği ortalamak ve genişliği sınırlamak için -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header Bölümü -->
+        <header class="bg-[#2C2C2C] text-[#E0E0E0] p-6 rounded-b-lg shadow-lg flex justify-between items-center relative z-10">
+            <!-- Blog Logosu/Adı - Anasayfaya Yönlendir -->
+            <div class="flex items-center space-x-2">
+                <!-- Retro tarzı SVG oyun kontrolcüsü ikonu -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#007BFF]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm-5 7h10v2H7V7zm0 4h10v2H7v-2zM6 14v4h12v-4H6zm3.5-9h5v2h-5V5zm-4 4h2v2h-2V9zm11 0h2v2h-2V9z"/>
+                </svg>
+                <a href="index.html" class="text-3xl font-aldrich text-[#007BFF] hover:text-[#4CAF50] transition-colors duration-200">
+                    Retro Byte
+                </a>
+            </div>
+
+            <!-- Masaüstü Navigasyon Menüsü -->
+            <nav class="hidden md:flex space-x-6 items-center">
+                <!-- Emülatörler Alt Menüsü -->
+                <div class="relative group">
+                    <a href="sayfalar/emülatorler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich inline-flex items-center">
+                        Emülatörler
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="absolute hidden group-hover-visible bg-[#2C2C2C] text-[#E0E0E0] rounded-md shadow-lg py-2 w-48 mt-0 top-full left-0 z-20 space-y-1">
+                        <a href="sayfalar/emülatorler-giris-seviyesi-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Giriş Seviyesi Rehberler</a>
+                        <a href="sayfalar/emülatorler-detayli-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Detaylı Rehberler</a>
+                    </div>
+                </div>
+                <a href="sayfalar/donanim-ve-modifikasyonlar.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Donanım & Modifikasyonlar</a>
+                <a href="sayfalar/incelemeler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İncelemeler</a>
+                <a href="sayfalar/fanzin.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Fanzin</a>
+                <a href="sayfalar/etik.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Etik</a>
+                <a href="sayfalar/faydali-linkler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Faydalı Linkler</a>
+                <a href="sayfalar/iletisim.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İletişim</a>
+            </nav>
+
+            <!-- Mobil Menü İkonu (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden text-[#E0E0E0] hover:text-[#007BFF] focus:outline-none transition-colors duration-200">
+                <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Mobil Açılır Menü -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-[#2C2C2C] rounded-b-lg shadow-lg absolute w-full left-0 z-0 py-4 transform -translate-y-2 transition-transform duration-300 ease-in-out">
+            <div class="flex flex-col items-center space-y-4">
+                <a href="index.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Anasayfa</a>
+                <!-- Emülatörler mobil menü için -->
+                <button class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich focus:outline-none" id="mobile-emulator-toggle">
+                    Emülatörler <svg class="ml-1 w-4 h-4 inline-block transform transition-transform duration-200" id="mobile-emulator-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="mobile-emulator-submenu" class="hidden flex flex-col items-center space-y-2 mt-2 w-full">
+                    <a href="sayfalar/emülatorler-giris-seviyesi-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Giriş Seviyesi Rehberler</a>
+                    <a href="sayfalar/emülatorler-detayli-rehberler.html" class="block px-4 py-2 text-sm hover:bg-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Detaylı Rehberler</a>
+                </div>
+                <a href="sayfalar/donanim-ve-modifikasyonlar.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Donanım & Modifikasyonlar</a>
+                <a href="sayfalar/incelemeler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İncelemeler</a>
+                <a href="sayfalar/fanzin.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Fanzin</a>
+                <a href="sayfalar/etik.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Etik</a>
+                <a href="sayfalar/faydali-linkler.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">Faydalı Linkler</a>
+                <a href="sayfalar/iletisim.html" class="text-lg text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-aldrich">İletişim</a>
+            </div>
+        </nav>
+
+        <!-- Ana İçerik ve Sidebar Bölümü -->
+        <main class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 my-8">
+            <!-- Ana İçerik Alanı -->
+            <section class="md:col-span-2 lg:col-span-3">
+
+                <!-- Blog Yazıları Listesi -->
+                <div id="post-list">
+                    <!-- Örnek Blog Yazısı Kartı 1 -->
+                    <article class="post-card bg-[#2C2C2C] p-6 rounded-lg shadow-md mb-8 group hover:shadow-lg hover:ring-2 hover:ring-[#007BFF] transition-all duration-300 ease-in-out" data-tags="nes,retro-oyunlar,konsol,mario">
+                        <h3 class="text-2xl font-aldrich text-[#007BFF] mb-2 group-hover:text-[#4CAF50] transition-colors duration-200">
+                            <a href="yazilar/efsanevi-nes.html">Efsanevi NES: Neden Hala Oynanmalı?</a>
+                        </h3>
+                        <p class="text-sm text-[#AAAAAA] mb-4">
+                            <span class="font-bold">Yazar:</span> Gemini | <span class="font-bold">Tarih:</span> 18 Haziran 2025 | <span class="font-bold">Kategori:</span> Retro Oyunlar
+                        </p>
+                        <p class="text-[#E0E0E0] leading-relaxed">
+                            Nintendo Entertainment System (NES), 8-bit döneminin tartışmasız kralıydı. Mario'dan Zelda'ya, oynamaktan asla bıkmayacağınız klasik oyunlarla dolu kütüphanesiyle, NES hala modern oyunlara meydan okuyor...
+                        </p>
+                        <a href="yazilar/efsanevi-nes.html" class="inline-block mt-4 px-6 py-2 bg-[#007BFF] text-white rounded-md font-aldrich hover:bg-[#4CAF50] hover:text-[#1A1A1A] transition-colors duration-200 active:scale-95">Devamını Oku</a>
+                    </article>
+
+                    <!-- Örnek Blog Yazısı Kartı 2 -->
+                    <article class="post-card bg-[#2C2C2C] p-6 rounded-lg shadow-md mb-8 group hover:shadow-lg hover:ring-2 hover:ring-[#007BFF] transition-all duration-300 ease-in-out" data-tags="mame,emülatör,arcade,rehber">
+                        <h3 class="text-2xl font-aldrich text-[#007BFF] mb-2 group-hover:text-[#4CAF50] transition-colors duration-200">
+                            <a href="yazilar/mame-rehberi.html">MAME Emülatör Rehberi: Arcade Salonlarını Evine Getir</a>
+                        </h3>
+                        <p class="text-sm text-[#AAAAAA] mb-4">
+                            <span class="font-bold">Yazar:</span> Gemini | <span class="font-bold">Tarih:</span> 15 Haziran 2025 | <span class="font-bold">Kategori:</span> Emülatörler
+                        </p>
+                        <p class="text-[#E0E0E0] leading-relaxed">
+                            MAME (Multiple Arcade Machine Emulator), binlerce klasik arcade oyununu bilgisayarınızda oynamanızı sağlayan güçlü bir araçtır. Bu rehberimizde MAME kurulumundan oyun bulmaya kadar her şeyi adım adım öğreneceksiniz...
+                        </p>
+                        <a href="yazilar/mame-rehberi.html" class="inline-block mt-4 px-6 py-2 bg-[#007BFF] text-white rounded-md font-aldrich hover:bg-[#4CAF50] hover:text-[#1A1A1A] transition-colors duration-200 active:scale-95">Devamını Oku</a>
+                    </article>
+
+                    <!-- Örnek Blog Yazısı Kartı 3 -->
+                    <article class="post-card bg-[#2C2C2C] p-6 rounded-lg shadow-md mb-8 group hover:shadow-lg hover:ring-2 hover:ring-[#007BFF] transition-all duration-300 ease-in-out" data-tags="dijital-arsivcilik,veri,koruma">
+                        <h3 class="text-2xl font-aldrich text-[#007BFF] mb-2 group-hover:text-[#4CAF50] transition-colors duration-200">
+                            <a href="yazilar/dijital-arsivciligin-onemi.html">Dijital Arşivciliğin Önemi: Geçmişi Geleceğe Taşımak</a>
+                        </h3>
+                        <p class="text-sm text-[#AAAAAA] mb-4">
+                            <span class="font-bold">Yazar:</span> Gemini | <span class="font-bold">Tarih:</span> 12 Haziran 2025 | <span class="font-bold">Kategori:</span> Dijital Arşivcilik
+                        </p>
+                        <p class="text-[#E0E0E0] leading-relaxed">
+                            Dijital verilerin hızla arttığı çağımızda, dijital arşivcilik her zamankinden daha kritik bir hale geliyor. Kültürel mirasımızı ve kişisel anılarımızı dijital olarak nasıl koruyabiliriz?
+                        </p>
+                        <a href="yazilar/dijital-arsivciligin-onemi.html" class="inline-block mt-4 px-6 py-2 bg-[#007BFF] text-white rounded-md font-aldrich hover:bg-[#4CAF50] hover:text-[#1A1A1A] transition-colors duration-200 active:scale-95">Devamını Oku</a>
+                    </article>
+
+                    <!-- Örnek Blog Yazısı Kartı 4 -->
+                    <article class="post-card bg-[#2C2C2C] p-6 rounded-lg shadow-md mb-8 group hover:shadow-lg hover:ring-2 hover:ring-[#007BFF] transition-all duration-300 ease-in-out" data-tags="snes,inceleme,oyun">
+                        <h3 class="text-2xl font-aldrich text-[#007BFF] mb-2 group-hover:text-[#4CAF50] transition-colors duration-200">
+                            <a href="yazilar/snes-incelemesi.html">Super Nintendo Entertainment System (SNES) İncelemesi</a>
+                        </h3>
+                        <p class="text-sm text-[#AAAAAA] mb-4">
+                            <span class="font-bold">Yazar:</span> Gemini | <span class="font-bold">Tarih:</span> 09 Haziran 2025 | <span class="font-bold">Kategori:</span> İncelemeler
+                        </p>
+                        <p class="text-[#E0E0E0] leading-relaxed">
+                            SNES, 16-bit konsolların altın çağına damgasını vurdu. Efsanevi J-RPG'leri ve platform oyunlarıyla, bu konsol hala birçok oyuncunun favorisi. Detaylı incelememizle SNES'in neden bu kadar özel olduğunu keşfedin...
+                        </p>
+                        <a href="yazilar/snes-incelemesi.html" class="inline-block mt-4 px-6 py-2 bg-[#007BFF] text-white rounded-md font-aldrich hover:bg-[#4CAF50] hover:text-[#1A1A1A] transition-colors duration-200 active:scale-95">Devamını Oku</a>
+                    </article>
+
+                    <!-- Örnek Blog Yazısı Kartı 5 -->
+                    <article class="post-card bg-[#2C2C2C] p-6 rounded-lg shadow-md mb-8 group hover:shadow-lg hover:ring-2 hover:ring-[#007BFF] transition-all duration-300 ease-in-out" data-tags="commodore-64,emülatör,klasik-bilgisayar">
+                        <h3 class="text-2xl font-aldrich text-[#007BFF] mb-2 group-hover:text-[#4CAF50] transition-colors duration-200">
+                            <a href="yazilar/c64-emulasyon.html">Commodore 64 Emülasyonu: Bir Efsaneyi Canlandırmak</a>
+                        </h3>
+                        <p class="text-sm text-[#AAAAAA] mb-4">
+                            <span class="font-bold">Yazar:</span> Gemini | <span class="font-bold">Tarih:</span> 05 Haziran 2025 | <span class="font-bold">Kategori:</span> Emülatörler
+                        </p>
+                        <p class="text-[#E0E0E0] leading-relaxed">
+                            80'lerin en ikonik ev bilgisayarlarından Commodore 64, sadece bir makine değil, bir kültür fenomenidir. Bu rehberimizde C64 emülatörlerini kullanarak o eşsiz deneyimi nasıl yeniden yaşayabileceğinizi anlatıyoruz...
+                        </p>
+                        <a href="yazilar/c64-emulasyon.html" class="inline-block mt-4 px-6 py-2 bg-[#007BFF] text-white rounded-md font-aldrich hover:bg-[#4CAF50] hover:text-[#1A1A1A] transition-colors duration-200 active:scale-95">Devamını Oku</a>
+                    </article>
+
+                    <!-- Örnek Blog Yazısı Kartı 6 (Gizli) -->
+                    <article class="post-card bg-[#2C2C2C] p-6 rounded-lg shadow-md mb-8 group hover:shadow-lg hover:ring-2 hover:ring-[#007BFF] transition-all duration-300 ease-in-out hidden" data-tags="atari,retro-oyunlar,konsol">
+                        <h3 class="text-2xl font-aldrich text-[#007BFF] mb-2 group-hover:text-[#4CAF50] transition-colors duration-200">
+                            <a href="yazilar/atari-2600-klasikleri.html">Atari 2600: İlk Konsol Deneyimleri</a>
+                        </h3>
+                        <p class="text-sm text-[#AAAAAA] mb-4">
+                            <span class="font-bold">Yazar:</span> Gemini | <span class="font-bold">Tarih:</span> 01 Haziran 2025 | <span class="font-bold">Kategori:</span> Retro Oyunlar
+                        </p>
+                        <p class="text-[#E0E0E0] leading-relaxed">
+                            Video oyunlarının ilk altın çağını başlatan Atari 2600, ev eğlencesini kökten değiştirdi. Basit grafiklerine rağmen bağımlılık yapan oyunlarıyla Atari 2600 klasikleri hala keşfedilmeyi bekliyor...
+                        </p>
+                        <a href="yazilar/atari-2600-klasikleri.html" class="inline-block mt-4 px-6 py-2 bg-[#007BFF] text-white rounded-md font-aldrich hover:bg-[#4CAF50] hover:text-[#1A1A1A] transition-colors duration-200 active:scale-95">Devamını Oku</a>
+                    </article>
+                    
+                    <!-- Daha fazla örnek yazı eklenebilir -->
+
+                </div>
+
+                <!-- Sayfalama (Pagination) -->
+                <div id="pagination-controls" class="flex justify-center items-center space-x-2 mt-8">
+                    <!-- Sayfalama butonları buraya JavaScript ile eklenecek -->
+                </div>
+
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="md:col-span-1 bg-[#2C2C2C] p-6 rounded-lg shadow-md sticky top-8 self-start">
+                <!-- Arama Barı -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-aldrich text-[#007BFF] mb-4 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span>Arama</span>
+                    </h3>
+                    <input type="text" id="search-input" placeholder="Blogda Ara..." 
+                           class="w-full p-3 rounded-md bg-[#1A1A1A] text-[#E0E0E0] border border-[#007BFF] focus:outline-none focus:ring-2 focus:ring-[#4CAF50] font-roboto-mono">
+                </div>
+
+                <!-- Etiketler Widget -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-aldrich text-[#007BFF] mb-4 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                        <span>Etiketler</span>
+                    </h3>
+                    <div id="tag-list" class="flex flex-wrap gap-2">
+                        <!-- Sadece belirtilen etiketler -->
+                        <button class="tag-button px-3 py-1 bg-[#1A1A1A] text-[#E0E0E0] rounded-full text-sm hover:bg-[#007BFF] transition-colors duration-200 active:scale-95" data-tag="psp">PSP</button>
+                        <button class="tag-button px-3 py-1 bg-[#1A1A1A] text-[#E0E0E0] rounded-full text-sm hover:bg-[#007BFF] transition-colors duration-200 active:scale-95" data-tag="playstation 1">PLAYSTATION 1</button>
+                        <button class="tag-button px-3 py-1 bg-[#1A1A1A] text-[#E0E0E0] rounded-full text-sm hover:bg-[#007BFF] transition-colors duration-200 active:scale-95" data-tag="rehber">REHBER</button>
+                        <button class="tag-button px-3 py-1 bg-[#1A1A1A] text-[#E0E0E0] rounded-full text-sm hover:bg-[#007BFF] transition-colors duration-200 active:scale-95" data-tag="emülatör">EMÜLATOR</button>
+                    </div>
+                </div>
+
+                <!-- Dijital Arşivcilik Hakkında Butonu -->
+                <div class="mb-8">
+                    <a href="https://your-digital-entrepreneurship-blog.com" target="_blank" rel="noopener noreferrer" 
+                       class="block w-full p-4 bg-[#007BFF] text-white rounded-lg text-center font-aldrich text-xl hover:bg-[#4CAF50] hover:text-[#1A1A1A] transition-colors duration-200 active:scale-95">
+                        Dijital Arşivcilik Hakkında
+                    </a>
+                </div>
+
+                <!-- Takipte Kal! Metin Linkleri -->
+                <div>
+                    <h3 class="text-2xl font-aldrich text-[#007BFF] mb-4 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                        <span>Takipte Kal!</span>
+                    </h3>
+                    <div class="flex flex-col space-y-2">
+                        <a href="https://www.reddit.com/user/your-reddit-username" target="_blank" rel="noopener noreferrer" class="text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Reddit</a>
+                        <a href="https://www.youtube.com/channel/your-youtube-channel" target="_blank" rel="noopener noreferrer" class="text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">YouTube</a>
+                        <a href="https://bsky.app/profile/your-bluesky-handle" target="_blank" rel="noopener noreferrer" class="text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Bluesky</a>
+                        <a href="https://discord.gg/your-discord-invite" target="_blank" rel="noopener noreferrer" class="text-[#E0E0E0] hover:text-[#007BFF] transition-colors duration-200 font-roboto-mono">Discord</a>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Footer Bölümü -->
+        <footer class="bg-[#2C2C2C] text-[#AAAAAA] p-6 rounded-t-lg shadow-inner text-center mt-8">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Retro Byte. Tüm Hakları Saklıdır.</p>
+            <!-- Gizlilik Politikası ve Şartlar ve Koşullar linkleri kaldırıldı -->
+        </footer>
+
+    </div> <!-- Genel konteyner sonu -->
+
+    <!-- Sayfa Başına Dön Butonu -->
+    <button id="scroll-to-top" class="fixed bottom-6 left-6 bg-[#007BFF] text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-[#4CAF50] focus:outline-none focus:ring-2 focus:ring-[#007BFF] z-20">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- JavaScript - Hamburger Menü, Sayfalama, Arama, Etiket Filtreleme ve Scroll To Top -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobil Menü Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileEmulatorToggle = document.getElementById('mobile-emulator-toggle');
+            const mobileEmulatorSubmenu = document.getElementById('mobile-emulator-submenu');
+            const mobileEmulatorArrow = document.getElementById('mobile-emulator-arrow');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenu.classList.toggle('translate-y-0');
+                    mobileMenu.classList.toggle('-translate-y-2');
+                });
+            }
+
+            if (mobileEmulatorToggle && mobileEmulatorSubmenu && mobileEmulatorArrow) {
+                mobileEmulatorToggle.addEventListener('click', function() {
+                    mobileEmulatorSubmenu.classList.toggle('hidden');
+                    mobileEmulatorArrow.classList.toggle('rotate-180');
+                });
+            }
+
+            // --- Sayfa Başına Dön Butonu ---
+            const scrollToTopButton = document.getElementById('scroll-to-top');
+            if (scrollToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        scrollToTopButton.classList.remove('opacity-0');
+                        scrollToTopButton.classList.add('opacity-100');
+                    } else {
+                        scrollToTopButton.classList.remove('opacity-100');
+                        scrollToTopButton.classList.add('opacity-0');
+                    }
+                });
+                scrollToTopButton.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // --- Anasayfa Sayfalama (Pagination) ---
+            const postsPerPage = 5; // Her sayfada gösterilecek yazı sayısı
+            const allPosts = document.querySelectorAll('.post-card');
+            const paginationControls = document.getElementById('pagination-controls');
+            let currentPage = 1;
+
+            function displayPosts(page) {
+                const startIndex = (page - 1) * postsPerPage;
+                const endIndex = startIndex + postsPerPage;
+
+                allPosts.forEach((post, index) => {
+                    if (index >= startIndex && index < endIndex) {
+                        post.classList.remove('hidden');
+                    } else {
+                        post.classList.add('hidden');
+                    }
+                });
+                currentPage = page;
+                updatePaginationButtons();
+            }
+
+            function setupPagination() {
+                paginationControls.innerHTML = ''; // Önceki butonları temizle
+                const pageCount = Math.ceil(allPosts.length / postsPerPage);
+
+                for (let i = 1; i <= pageCount; i++) {
+                    const button = document.createElement('button');
+                    button.textContent = i;
+                    button.classList.add('px-4', 'py-2', 'rounded-md', 'font-aldrich', 'transition-colors', 'duration-200');
+                    button.addEventListener('click', () => displayPosts(i));
+                    paginationControls.appendChild(button);
+                }
+                updatePaginationButtons(); // İlk yüklemede buton stillerini ayarla
+            }
+
+            function updatePaginationButtons() {
+                Array.from(paginationControls.children).forEach((button, index) => {
+                    if (index + 1 === currentPage) {
+                        button.classList.remove('bg-[#1A1A1A]', 'text-[#E0E0E0]', 'hover:bg-[#007BFF]');
+                        button.classList.add('bg-[#007BFF]', 'text-white');
+                    } else {
+                        button.classList.remove('bg-[#007BFF]', 'text-white'); // Eğer bir önceki sayfa ise renkleri sıfırla
+                        button.classList.add('bg-[#1A1A1A]', 'text-[#E0E0E0]', 'hover:bg-[#007BFF]');
+                    }
+                });
+            }
+
+            // --- Arama Fonksiyonu ---
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.addEventListener('keyup', function() {
+                    const searchTerm = searchInput.value.toLowerCase();
+                    const filteredPosts = Array.from(allPosts).filter(post => {
+                        const title = post.querySelector('h3 a').textContent.toLowerCase();
+                        const snippet = post.querySelector('p:last-of-type').textContent.toLowerCase();
+                        return title.includes(searchTerm) || snippet.includes(searchTerm);
+                    });
+
+                    allPosts.forEach(post => post.classList.add('hidden')); // Tüm yazıları gizle
+                    filteredPosts.forEach(post => post.classList.remove('hidden')); // Filtrelenenleri göster
+
+                    // Arama yapıldığında sayfalama butonlarını gizle
+                    paginationControls.classList.add('hidden');
+
+                    if (searchTerm === '') {
+                        // Arama kutusu boşalınca sayfalama ve ilk 5 yazıyı tekrar göster
+                        displayPosts(1);
+                        paginationControls.classList.remove('hidden');
+                    }
+                });
+            }
+
+            // --- Etiket Filtreleme ---
+            const tagListContainer = document.getElementById('tag-list');
+            // Etiket butonlarını doğrudan DOM'dan alıyoruz
+            const tagButtons = document.querySelectorAll('.tag-button');
+
+            tagButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const selectedTag = this.getAttribute('data-tag').toLowerCase(); // Etiket değerini küçük harfe çevir
+
+                    // Tüm etiket butonlarının stilini sıfırla
+                    tagButtons.forEach(btn => {
+                        btn.classList.remove('bg-[#007BFF]', 'text-white');
+                        btn.classList.add('bg-[#1A1A1A]', 'text-[#E0E0E0]');
+                    });
+                    // Tıklanan etiket butonunu vurgula
+                    this.classList.remove('bg-[#1A1A1A]', 'text-[#E0E0E0]');
+                    this.classList.add('bg-[#007BFF]', 'text-white');
+
+
+                    allPosts.forEach(post => {
+                        const postTags = post.getAttribute('data-tags') || '';
+                        if (postTags.split(',').map(t => t.trim().toLowerCase()).includes(selectedTag)) { // Post etiketlerini de küçük harfe çevirerek kontrol et
+                            post.classList.remove('hidden');
+                        } else {
+                            post.classList.add('hidden');
+                        }
+                    });
+                    // Etiket filtrelemesi yapıldığında sayfalama ve arama kutusunu sıfırla
+                    searchInput.value = '';
+                    paginationControls.classList.add('hidden');
+                });
+            });
+
+            // Başlangıçta ilk sayfayı göster ve sayfalamayı kur
+            displayPosts(1);
+            setupPagination();
+        });
+    </script>
+</body>
+</html>
